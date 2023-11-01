@@ -292,7 +292,7 @@ Apart from existing ones, Unikraft must employ all other relevant security featu
 Top priority planned or ongoing security features include ASLR, shadow stacks and `FORTIFY_SOURCE`.
 Other targets include Intel Control-flow Enforcement Technology (CET), or ARM Speculation Barrier (SB).
 
-Apart from security features, Unikraft could benefit from VM-based isolation features such as ARM Confidential Compute Architecture (CCA), Intel Trust Domain Extensions (TDE) or AMD Secure Encrypted Virtualization (SEV).
+Apart from security features, Unikraft could benefit from VM-based isolation features such as ARM Confidential Compute Architecture (CCA), Intel Trust Domain Extensions (TDX) or AMD Secure Encrypted Virtualization (SEV).
 
 Another idea is the use of static or dynamic analysis techniques for software penetration testing of the Unikraft code base and for its security assessment.
 
