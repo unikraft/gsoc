@@ -51,7 +51,7 @@ Look for items such as:
 
 * Removing build warnings for any of the repositories in the [Unikraft GitHub organization](https://github.com/unikraft/).
 * Fixing inconsistencies or adding missing information in the [documentation](https://github.com/unikraft/docs) (rendered on the [main Unikraft website](https://unikraft.org/)).
-* Adding [tests](https://unikraft.org/docs/develop/writing-tests/) to Unikraft components.
+* Adding [tests](https://unikraft.org/guides/testing/) to Unikraft components.
 * Tasks in the [`Hackathons` GitHub project](https://github.com/orgs/unikraft/projects/29).
 * Issues marked with the [`good-first-issue` label](https://github.com/unikraft/unikraft/issues?q=is%3Aissue+is%3Aopen+label%3Agood-first-issue+).
 * Adding documentation as `README.md` files and [Doxygen](https://www.doxygen.nl/)-style comments to [internal libraries](https://github.com/unikraft/unikraft/tree/staging/lib).
