@@ -24,7 +24,7 @@ Mentors will be assigned when the project is initiated.  Please feel free to rea
 | [Michalis Pappas](https://github.com/michpappas) | michalis@unikraft.io |
 | [Ștefan Jumărea](https://github.com/StefanJum) | stefanjumarea02@gmail.com |
 | [Răzvan Vîrtan](https://github.com/razvanvirtan) | virtanrazvan@gmail.com |
-| [Hugo Lefeuvre](https://github.com/hlef) | hle@owl.eu.com |
+| [Hugo Lefeuvre](https://github.com/hlef) | hugo.lefeuvre@ubc.ca |
 
 Below are a list of open projects for Unikraft which can be developed as part of GSoC25.
 
