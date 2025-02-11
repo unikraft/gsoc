@@ -111,6 +111,8 @@ These will both increase the viability of Unikraft as a stable solution and incr
 * https://github.com/features/actions
 * https://unikraft.org/docs/contributing/review-process/
 
+---
+
 ### Supporting macOS networking (medium-large, 175-350hrs)
 
 | | |
@@ -132,6 +134,8 @@ Until now, the project only supports Linux bridge networking with accommodation 
 #### Reading & Related Material
 
 * https://github.com/unikraft/kraftkit/issues/841
+
+---
 
 ### Converting the eroFS library to Golang and testing it
 
@@ -161,4 +165,36 @@ Finally, at all steps tests should be implemented that compare original function
 * https://pkg.go.dev/gvisor.dev/gvisor/pkg/erofs
 * https://github.com/dpeckett/archivefs/tree/main/erofs
 
+---
+
+### Fine-Tuning Unikraft's Performance
+
+| | |
+|-|-|
+| **Difficulty** | 3/5 |
+| **Project Size** | Variable (175 or 350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | Good C skills, familiarity with general operating system concepts, good testing knowledge |
+
+#### Description
+
+Over the past releases the development focus of Unikraft has been set on improving its compatibility with existing code bases and adding missing operating system features.
+This means that less efforts were dedicated to performance-testing Unikraft, resulting in a potential loss of performance in recent releases.
+Now that Unikraft is reaching the desired level of maturity and compatibility, it is time to go back to evaluating and fine-tuning its performance.
+
+The aim of this project is to 1) evaluate the current performance of Unikraft, 2) identify potential performance bottlenecks, and 3) address these bottlenecks through targeted patches.
+- To evaluate the performance of Unikraft, this project will base on the evaluation of the Unikraft EuroSys paper, re-running experiments with the latest release of Unikraft.
+  The first phase of the project will be to create a new repository with updated experiments that can easily be run in a push-button manner (deliverable 1).
+- Following this, bottlenecks will be identified.
+  Performance bottlenecks may lie in any Unikraft component: this will be a unique opportunity to touch on many operating system concepts.
+  Performance bottlenecks will be reported in the form of GitHub issues (deliverable 2).
+- Finally, the project will aim to provide self-contained, targeted fixes for these bottlenecks in the form of GitHub Pull-Requests (deliverable 3).
+
+This project is a unique opportunity to learn about performance evaluation and optimization in a production-grade operating system.
+It is also an opportunity to participate in a potential academic journal submission of Unikraft by refreshing its evaluation.
+
+#### Reading & Related Material
+
+* The Unikraft EuroSys 2021 paper (see the Evaluation, Section 5): https://dl.acm.org/doi/10.1145/3447786.3456248
+* The EuroSys 2021 evaluation repository: https://github.com/unikraft/eurosys21-artifacts
 ---
