@@ -133,4 +133,32 @@ Until now, the project only supports Linux bridge networking with accommodation 
 
 * https://github.com/unikraft/kraftkit/issues/841
 
+### Converting the eroFS library to Golang and testing it
+
+| | |
+|-|-|
+| **Difficulty** | 3/5 |
+| **Project Size** | Variable (175 or 350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | Good Go skills, decent C skills, familiarity with file systems, basic testing knowledge |
+
+#### Description
+
+[EROFS](https://docs.kernel.org/filesystems/erofs.html) (Enhanced Read-Only File System) is a lightweight, high-performance read-only filesystem tailored for Linux environments.
+It is designed to provide fast and efficient access to data while supporting built-in transparent compression, which helps reduce storage overhead.
+Currently, Golang has support through [libraries](https://pkg.go.dev/gvisor.dev/gvisor/pkg/erofs) only for reading EROFS files and no support for creating them.
+
+Towards better support in [KraftKit](https://github.com/unikraft/kraftkit/pull/2007), this project aims to introduce a new library that reimplements the `mkfs.erofs` command with all its functionality.
+This is [currently](https://github.com/erofs/erofs-utils/blob/dev/mkfs/main.c) implemented in C which can only be imported into Golang with C to Go bindings.
+Some [attempts](https://github.com/dpeckett/archivefs/tree/main/erofs) have been made to implement this, but are incomplete and do not offer all arguments, of which some we need.
+Finally, at all steps tests should be implemented that compare original functionality to the ported library functionality.
+
+#### Reading & Related Material
+
+* https://docs.kernel.org/filesystems/erofs.html
+* https://github.com/erofs/erofs-utils/blob/dev/mkfs/main.c
+* https://github.com/unikraft/kraftkit/pull/2007
+* https://pkg.go.dev/gvisor.dev/gvisor/pkg/erofs
+* https://github.com/dpeckett/archivefs/tree/main/erofs
+
 ---
