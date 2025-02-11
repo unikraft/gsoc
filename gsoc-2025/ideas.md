@@ -125,7 +125,7 @@ These will both increase the viability of Unikraft as a stable solution and incr
 #### Description
 
 [KraftKit](https://github.com/unikraft/kraftkit), the supporting codebase for the modular library operating system Unikraft designed for cloud native applications, provides users with the ability to build, package and run unikernels.
-As a swiss-army-knife of unikernel development, it eases both the construction and deployment of unikernels.
+As a Swiss-army-knife of unikernel development, it eases both the construction and deployment of unikernels.
 To this end, supporting diverse user environments and their ability to run unikernels locally supports the ultimate goal of the project.  One such environment which requires more attention is macOS.
 
 Towards better facilitating the execution of unikernel virtual machine images on macOS, this project aims to introduce new packages which interface directly with macOS environments by interfacing natively with the local networking environment such that the execution of unikernels is accessible through a more direct communication mechanisms of the host.
@@ -197,4 +197,148 @@ It is also an opportunity to participate in a potential academic journal submiss
 
 * The Unikraft EuroSys 2021 paper (see the Evaluation, Section 5): https://dl.acm.org/doi/10.1145/3447786.3456248
 * The EuroSys 2021 evaluation repository: https://github.com/unikraft/eurosys21-artifacts
+
+---
+
+### Testing Framework for Unikraft Builds
+
+| | |
+| **Difficulty** | 3/5 |
+| **Project Size** | Variable (175 or 350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | Python knowledge, Linux CLI |
+
+#### Description
+
+We are currently developing a [testing framework](https://github.com/unikraft-upb/catalog/tree/razvand/generator/new-design/utils/new-design) that is able to multiplex the variety of configuration options, VMMs, hypervisors, architectures, boot protocols, to validate the successful building and running of unikernel images.
+This framework is able to configure, build, run and test the variety of Unikraft builds.
+It is written in Python and is subject to improvements and refactoring.
+
+We are looking to augment the testing infrastructure to make it seamless to be used by Unikraft developers and users.
+To this end we aim to:
+
+- Consolidate the testing framework as a separate project inside its own repository.
+- Have the testing framework work out-of-the-box with the [`catalog`](https://github.com/unikraft/catalog) and [`catalog-core`](https://github.com/unikraft/catalog-core) repositories.
+- Integrate the testing framework with the CI/CD system used in the [Unikraft organization repositories](https://github.com/unikraft) to automatically validate builds for contributions.
+
+#### Reading & Related Material
+
+* https://github.com/unikraft/catalog
+* https://github.com/unikraft/catalog-core
+* https://github.com/unikraft-upb/catalog/tree/razvand/generator/new-design/utils/new-design
+
+---
+
+### Update Newlib and Pthread-embedded Libraries
+
+| | |
+| **Difficulty** | 3/5 |
+| **Project Size** | Variable (175 or 350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | C, assembly, Linux CLI, GNU build tools |
+
+#### Description
+
+The default Unikraft standard C library (libc) is [Musl](https://github.com/unikraft/lib-musl), a lightweight libc providing a POSIX interface.
+Up until 2022, the default libc was [Newlib](https://github.com/unikraft/lib-newlib).
+Starting with [release 0.11.0](https://unikraft.org/blog/2022-12-02-unikraft-releases-janus) the default libc switched to Musl.
+
+Ever since that point, Newlib supported hasn't been updated to keep up with the recent version of Unikraft.
+
+The goal of this project is to update Newlib ([`pthread-embedded`](https://github.com/unikraft/lib-pthread-embedded)) support to the recent Unikraft versions.
+Such as current builds would work out-of-the-box with Newlib and pthread-embedded as well as Musl.
+
+The steps to be done are:
+
+1. Update Newlib and pthread-embedded to build with the most recent Unikraft version.
+1. Update Newlib version to the [most recent upstream version](https://sourceware.org/newlib/).
+1. Build and run applications on the [`catalog-core`](https://github.com/unikraft/catalog-core) and [`catalog`](https://github.com/unikraft/catalog) repositories.
+1. (Optionally) Add CI pipelines to work with Newlib and pthread-embedded.
+
+#### Reading & Related Material
+
+* https://github.com/unikraft/lib-newlib
+* https://github.com/unikraft/lib-pthread-embedded
+* https://github.com/RWTH-OS/pthread-embedded
+* https://sourceware.org/newlib/
+
+---
+
+### Update Unikraft Core External Libraries
+
+| | |
+| **Difficulty** | 3/5 |
+| **Project Size** | Variable (175 or 350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | C, assembly, Linux CLI, GNU build tools |
+
+#### Description
+
+The Unikraft core external libraries haven't been updated in the past 2 years.
+We aim to update them to their latest version.
+That means:
+
+- Update [`lib-musl`](https://github.com/unikraft/lib-musl) from 1.2.3 to 1.2.5 (the most recent [upstream Musl](https://musl.libc.org/) version).
+- Update [`lib-lwip`](https://github.com/unikraft/lib-lwip) from 2.1.2 to 2.2.1 (the most recent [upstream LWIP](https://savannah.nongnu.org/projects/lwip/) version).
+- Update [`lib-gcc`](https://github.com/unikraft/lib-gcc) from 7.3.0 to 14.2.0 (the most recent [upstream GCC](https://ftp.gnu.org/gnu/gcc/) version).
+
+The update is aimed to use the [workflow for Unikraft microlibrary version](https://docs.google.com/document/d/1A-CAss5RvgYapg3YO8GNCdMki6cgq_7XG5om8nVWWGk/edit?usp=sharing).
+As part of the update effort, we aim to also test and validate builds for the [`catalog-core`](https://github.com/unikraft/catalog-core) and [`catalog`](https://github.com/unikraft/catalog) repositories.
+
+#### Reading & Related Material
+
+* [RFC: Unikraft Microlibrary Versioning](https://docs.google.com/document/d/1A-CAss5RvgYapg3YO8GNCdMki6cgq_7XG5om8nVWWGk/edit?usp=sharing)
+
+---
+
+### Update Unikraft Application Libraries
+
+| | |
+| **Difficulty** | 3/5 |
+| **Project Size** | Variable (175 or 350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | C, assembly, Linux CLI, GNU build tools |
+
+#### Description
+
+The Unikraft application libraries haven't been updated in the past 2 years.
+We aim to update them to their latest upstream version.
+Target libraries / applications are:
+
+- [`lib-nginx`](https://github.com/unikraft/lib-nginx)
+- [`lib-redis`](https://github.com/unikraft/lib-redis)
+- [`lib-sqlite`](https://github.com/unikraft/lib-sqlite)
+- [`lib-python3`](https://github.com/unikraft/lib-python3)
+- [`lib-libgo`](https://github.com/unikraft/lib-libgo)
+- [`lib-lua`](https://github.com/unikraft/lib-lua)
+
+The update is aimed to use the [workflow for Unikraft microlibrary version](https://docs.google.com/document/d/1A-CAss5RvgYapg3YO8GNCdMki6cgq_7XG5om8nVWWGk/edit?usp=sharing).
+As part of the update effort, we aim to also test and validate builds for the [`catalog-core`](https://github.com/unikraft/catalog-core) and [`catalog`](https://github.com/unikraft/catalog) repositories.
+
+#### Reading & Related Material
+
+* [RFC: Unikraft Microlibrary Versioning](https://docs.google.com/document/d/1A-CAss5RvgYapg3YO8GNCdMki6cgq_7XG5om8nVWWGk/edit?usp=sharing)
+
+---
+
+### Add FreeBSD Libc as Unikraft External Library
+
+| | |
+| **Difficulty** | 3/5 |
+| **Project Size** | Variable (175 or 350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | C, assembly, Linux CLI, GNU build tools |
+
+#### Description
+
+The default Unikraft standard C library (libc) is [Musl](https://github.com/unikraft/lib-musl), a lightweight libc providing a POSIX interface.
+[FreeBSD Libc](https://github.com/freebsd/freebsd-src/tree/main/lib/libc) is the default libc used by default by FreeBSD, with a compatible license with Unikraft.
+
+The goal of this project is have a FreeBSD libc build repository for Unikraft and build existing applications against it.
+In the end, you would be able to build and run applications on the [`catalog-core`](https://github.com/unikraft/catalog-core) and [`catalog`](https://github.com/unikraft/catalog) repositories using the FreeBSD libc variant.
+
+#### Reading & Related Material
+
+* https://github.com/freebsd/freebsd-src/tree/main/lib/libc
+
 ---
