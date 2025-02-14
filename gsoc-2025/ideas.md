@@ -203,6 +203,7 @@ It is also an opportunity to participate in a potential academic journal submiss
 ### Testing Framework for Unikraft Builds
 
 | | |
+|-|-|
 | **Difficulty** | 3/5 |
 | **Project Size** | Variable (175 or 350 hours) |
 | **Maximum instances** | 1 |
@@ -220,6 +221,7 @@ To this end we aim to:
 - Consolidate the testing framework as a separate project inside its own repository.
 - Have the testing framework work out-of-the-box with the [`catalog`](https://github.com/unikraft/catalog) and [`catalog-core`](https://github.com/unikraft/catalog-core) repositories.
 - Integrate the testing framework with the CI/CD system used in the [Unikraft organization repositories](https://github.com/unikraft) to automatically validate builds for contributions.
+  Tests are to be triggered each time a pull request is open in the [`unikraft`](https://github.com/unikraft/unikraft) and in core library repositories.
 
 #### Reading & Related Material
 
@@ -232,6 +234,7 @@ To this end we aim to:
 ### Update Newlib and Pthread-embedded Libraries
 
 | | |
+|-|-|
 | **Difficulty** | 3/5 |
 | **Project Size** | Variable (175 or 350 hours) |
 | **Maximum instances** | 1 |
@@ -245,7 +248,7 @@ Starting with [release 0.11.0](https://unikraft.org/blog/2022-12-02-unikraft-rel
 
 Ever since that point, Newlib supported hasn't been updated to keep up with the recent version of Unikraft.
 
-The goal of this project is to update Newlib ([`pthread-embedded`](https://github.com/unikraft/lib-pthread-embedded)) support to the recent Unikraft versions.
+The goal of this project is to update [Newlib](https://github.com/unikraft/lib-newlib) and [`pthread-embedded`](https://github.com/unikraft/lib-pthread-embedded) support to the recent Unikraft versions.
 Such as current builds would work out-of-the-box with Newlib and pthread-embedded as well as Musl.
 
 The steps to be done are:
@@ -267,9 +270,10 @@ The steps to be done are:
 ### Update Unikraft Core External Libraries
 
 | | |
+|-|-|
 | **Difficulty** | 3/5 |
 | **Project Size** | Variable (175 or 350 hours) |
-| **Maximum instances** | 1 |
+| **Maximum instances** | 2 |
 | **Constraints/requirements** | C, assembly, Linux CLI, GNU build tools |
 
 #### Description
@@ -281,6 +285,10 @@ That means:
 - Update [`lib-musl`](https://github.com/unikraft/lib-musl) from 1.2.3 to 1.2.5 (the most recent [upstream Musl](https://musl.libc.org/) version).
 - Update [`lib-lwip`](https://github.com/unikraft/lib-lwip) from 2.1.2 to 2.2.1 (the most recent [upstream LWIP](https://savannah.nongnu.org/projects/lwip/) version).
 - Update [`lib-gcc`](https://github.com/unikraft/lib-gcc) from 7.3.0 to 14.2.0 (the most recent [upstream GCC](https://ftp.gnu.org/gnu/gcc/) version).
+- Update [`lib-libcxx`](https://github.com/unikraft/lib-libcxx) from 14.0.6 to 19.1.7 (the most recent [upstream LLVM](https://github.com/llvm/llvm-project/releases) version).
+- Update [`lib-libcxxabi`](https://github.com/unikraft/lib-libcxxabi) from 14.0.6 to 19.1.7 (the most recent [upstream LLVM](https://github.com/llvm/llvm-project/releases) version).
+- Update [`lib-compiler-rt`](https://github.com/unikraft/lib-compiler-rt) from 14.0.6 to 19.1.7 (the most recent [upstream LLVM](https://github.com/llvm/llvm-project/releases) version).
+- Update [`lib-libunwind`](https://github.com/unikraft/lib-libunwind) from 14.0.6 to 19.1.7 (the most recent [upstream LLVM](https://github.com/llvm/llvm-project/releases) version).
 
 The update is aimed to use the [workflow for Unikraft microlibrary version](https://docs.google.com/document/d/1A-CAss5RvgYapg3YO8GNCdMki6cgq_7XG5om8nVWWGk/edit?usp=sharing).
 As part of the update effort, we aim to also test and validate builds for the [`catalog-core`](https://github.com/unikraft/catalog-core) and [`catalog`](https://github.com/unikraft/catalog) repositories.
@@ -294,9 +302,10 @@ As part of the update effort, we aim to also test and validate builds for the [`
 ### Update Unikraft Application Libraries
 
 | | |
+|-|-|
 | **Difficulty** | 3/5 |
 | **Project Size** | Variable (175 or 350 hours) |
-| **Maximum instances** | 1 |
+| **Maximum instances** | 2 |
 | **Constraints/requirements** | C, assembly, Linux CLI, GNU build tools |
 
 #### Description
@@ -324,6 +333,7 @@ As part of the update effort, we aim to also test and validate builds for the [`
 ### Add FreeBSD Libc as Unikraft External Library
 
 | | |
+|-|-|
 | **Difficulty** | 3/5 |
 | **Project Size** | Variable (175 or 350 hours) |
 | **Maximum instances** | 1 |
