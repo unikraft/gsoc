@@ -132,7 +132,7 @@ These will both increase the viability of Unikraft as a stable solution and incr
 
 ---
 
-### Supporting macOS networking (medium-large, 175-350hrs)
+### Supporting macOS networking
 
 | | |
 |-|-|
@@ -153,6 +153,109 @@ Until now, the project only supports Linux bridge networking with accommodation 
 #### Reading & Related Material
 
 * https://github.com/unikraft/kraftkit/issues/841
+
+---
+
+### Supporting User-provided, Long-lived Environmental Variables for Unikraft Builds
+
+| | |
+|-|-|
+| **Difficulty** | 2/5 |
+| **Project Size** | Medium (175 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | Good Go skills, familiarity with build tools, good OS knowledge |
+
+#### Description
+
+Unikraft is a highly modular library operating system designed for the cloud.
+Its high degree of modularization allows for extreme customization and specialization.
+As such, its tooling should not interfere with the user's desire to support such customization.
+Towards increasing the unikernel's developer's ability to customize the build whilst simultaneously automating the process of retrieving, organizing and generally facilitating the build of a unikernel based on Unikraft and its many components, the supported tooling, [kraft](https://github.com/unikraft/kraftkit), should allow for the injection of the user's environment and or additional toolchain requirements.
+
+This project is designed to better facilitate the dynamic injection of user provided variables into Unikraft's build system through the addition of a dynamically configured toolchain towards greater customization of the unikernel build through the use of its command-line companion client tool, `kraft`.
+This manifests itself as an injection into KraftKit's core configuration system and must propagate across the codebase appropriately.
+
+Distinct results of this addition would enable, but are not limited to: alternating the GNU Compiler Collection (GCC) version, providing alternative compile-time flags, and more.
+
+#### Reading & Related Material
+
+* https://github.com/unikraft/kraftkit/issues/673
+
+---
+
+### Unikernel Remote Builds Server
+
+| | |
+|-|-|
+| **Difficulty** | 4/5 |
+| **Project Size** | Large (350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | Good Go skills, familiarity with virtualization, good orchestration knowledge, good networking knowledge |
+
+#### Description
+
+[KraftKit](https://github.com/unikraft/kraftkit), the cli tool used by Unikraft provides users with the ability to build, package and run unikernels.
+These builds are currently executed locally, which may not be ideal for all users that may not own a powerful machine or may want to offload the build process to a remote server.
+
+To this end, this project aims to introduce a new package which interfaces directly with a remote server environment by implementing a client-server architecture for remote unikernel builds.
+`kraft` will act as the client, sending build requests to a remote server, which will execute the build and send back the results to the client to place in the current directory at known paths.
+Moreover, an initial implemntation of the server needs to be created, which will be responsible for receiving build requests, executing them and sending the results back to the client, whilst cleaning up the environment after the build is done.
+This server could also be `kraft` itself, running in server mode and listening for build requests from other `kraft` invocations.
+
+#### Reading & Related Material
+
+* https://github.com/unikraft/kraftkit/issues/2635
+
+---
+
+### Add KraftKit Support for Hyperlight
+
+| | |
+|-|-|
+| **Difficulty** | 4/5 |
+| **Project Size** | Large (350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | Good Go skills, familiarity with virtualization, decent kernel programming knowledge |
+
+#### Description
+
+[KraftKit](https://github.com/unikraft/kraftkit), the companion tool used by Unikraft can be used also to run unikernels locally using various hypervisors.
+Currently, KraftKit supports both QEMU and Firecracker as KVM VMMs.
+It also supports Xen through the use of `xl` toolstack.
+To increase support for other tools, this project aims to add support for [Hyperlight](https://github.com/hyperlight-dev/hyperlight), a new VMM using the Linux `kvm` module for lightweight virtualization.
+Similar to both the [QEMU](https://github.com/unikraft/kraftkit/tree/staging/machine/qemu) and [Firecracker](https://github.com/unikraft/kraftkit/tree/staging/machine/firecracker) packages, a new one needs to be created for Hyperlight, such that the command `kraft run` would be able to run unikernels using Hyperlight as the underlying VMM.
+Development will be incremental, starting with basic "Hello World" functionality, and later adding support for networking, storage and other features.
+
+#### Reading & Related Material
+
+* https://github.com/unikraft/kraftkit/issues/2636
+
+---
+
+### Enhance KraftKit's Testing Suite
+
+| | |
+|-|-|
+| **Difficulty** | 3/5 |
+| **Project Size** | Variable (175-350 hours) |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | Good Go skills, familiarity with testing, basic Linux CLI knowledge |
+
+#### Description
+
+[KraftKit](https://github.com/unikraft/kraftkit), the tool used to build, package, and run unikernels based on Unikraft, has a minimal set of tests.
+To ensure the stability of the codebase and to prevent regressions, this project aims to enhance the testing suite of KraftKit by adding new tests for existing functionality, as well as for new features.
+Sample tests exists throughout for both unit tests and integration tests, but these lack breadth.
+The project aims to first target internal packages that require unit testing by doing a bottom-up approach.
+At the same time, integration tests for the untested `kraft` commands need to be added as a top-down approach.
+
+#### Reading & Related Material
+
+* https://github.com/unikraft/kraftkit/issues/370
+* https://github.com/unikraft/kraftkit/issues/811
+* https://github.com/unikraft/kraftkit/issues/808
+* https://github.com/unikraft/kraftkit/issues/809
+* https://github.com/unikraft/kraftkit/issues/810
 
 ---
 
