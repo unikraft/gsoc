@@ -87,6 +87,18 @@ It should contain a detailed description of your project proposal.
 The application is a document that you will submit and that summarizes your motivation and suitability for the project.
 We recommend you copy our [Google Document template](https://docs.google.com/document/d/1TjoRgWMTjB114QlRVc7N5rZ6rswUzEN-JS-G_gB0Bso/edit?usp=sharing) and make sure you answer all the questions.
 
+### AI policy
+
+We recognize the usefulness of AI tools in understanding code, debugging, developing, and writing documentation.
+Whenever useful, use AI to assist in understanding tasks, localizing bugs and creating solutions.
+
+However, we mandate that any contribution must be thoroughly understood and reviewed by its author.
+We do not consider a true contributor someone that has used AI tools for a contribution but has imperfect understanding of the contribution.
+
+For the actual application submission, your only reliance on AI should be on improving wording.
+The application idea, objectives, motivation of work, planning must be owned by you, the applicant.
+Heavy use of AI for the application will disqualify your application.
+
 ### Still have some doubts/questions?
 
 Ask away on [Discord](https://unikraft.org/discord), on the `#gsoc` channel.
