@@ -100,7 +100,7 @@ The project length can be varied depending on which of these items are covered b
 
 #### Description
 
-During its 6 years of existence, Unikraft, now at version 0.16.1, has grown in features, application support and codebase.
+During its years of existence, Unikraft has grown in features, application support and codebase.
 As it matures, a high quality of the code and robust behavior are a must to provide a stable solution for its user base.
 
 The aim of this project is to assist in the software quality assurance of the Unikraft codebase, by tackling one of the following ideas:
