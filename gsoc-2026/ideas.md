@@ -36,16 +36,30 @@ Below are a list of open projects for Unikraft which can be developed as part of
 |-|-|
 | **Difficulty** | 3/5 |
 | **Project Size** | Variable (175 or 350 hours) |
-| **Maximum instances** | 2 |
-| **Constraints/requirements** | Basic OS concepts, familiarity with POSIX and system calls, build systems and tool stacks. |
+| **Maximum instances** | 1 |
+| **Constraints/requirements** | Familiarity with build systems and linking, good OS concepts, Linux CLI. |
 
 #### Description
 
-TODO
+As an SDK (Software Development Kit), Unikraft provides the build system and tooling to build your application as a unikernel.
+The application source code files are selected and then compiled, together with the unikernel source code files.
+Then they are all linked together in a final unikernel image that is run a virtual machine.
+
+This process is complicated, as the application itself needs to adapted to the Unikraft build system.
+
+Another approach is using the [POSIX binary compatibility layer](https://unikraft.org/docs/internals/syscall-shim) and run ELF binaries directly on top of Unikraft.
+This, however, sacrifices performance for usability.
+
+We propose a middle ground: build Unikraft as a static library that will then be linked to the application object files.
+This will give good performance benefits, while simplifying the build process of applications with Unikraft.
+There will be need to configure Unikraft and / or to work with the Unikraft build system.
 
 #### Reading & Related Material
 
-* TODO
+* [Unikraft Build Process](https://unikraft.org/docs/internals/build-process)
+* [Unikraft: Internals of the Build Process](https://unikraft.org/docs/internals/build-system)
+* [Bincompat Applications](https://unikraft.org/guides/bincompat)
+* [Porting Applications to Unikraft](https://unikraft.org/guides/basic-porting)
 
 ---
 
@@ -263,7 +277,7 @@ At the same time, integration tests for the untested `kraft` commands need to be
 
 | | |
 |-|-|
-| **Difficulty** | 3/5 |
+| **Difficulty** | 4/5 |
 | **Project Size** | Variable (175 or 350 hours) |
 | **Maximum instances** | 1 |
 | **Constraints/requirements** | Good C skills, familiarity with general operating system concepts, good testing knowledge |
@@ -298,12 +312,23 @@ It is also an opportunity to participate in a potential academic journal submiss
 |-|-|
 | **Difficulty** | 3/5 |
 | **Project Size** | Variable (175 or 350 hours) |
-| **Maximum instances** | 1 |
+| **Maximum instances** | 2 |
 | **Constraints/requirements** | Python knowledge, Linux CLI |
 
 #### Description
 
-TODO
+Autokraft](https://github.com/unikraft/autokraft) is a testing framework for validating Unikraft unikernel builds across various configurations, platforms, and environments.
+Autokraft has been part of GSoC 2025 and is now an integral part of the Unikraft ecosystem.
+
+Autokraft can benefit from various improvements to its implementation, such as:
+- parallelizing / pipelining builds and runs to decrease the total build time duration
+- testing and validating it on Windows (WSL) and macOS environments
+- improving the CI/CD pipelines to use Autokraft: when PRs are created, merged, or periodically on repository main branches
+- testing Autokraft with Xen
+- running build and runs on a remote box
+
+Additional features are welcome.
+As a young project, Autokraft can benefit from refactoring, code updates or other applicant-proposed features.
 
 #### Reading & Related Material
 
