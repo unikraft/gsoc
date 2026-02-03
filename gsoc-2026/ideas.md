@@ -22,9 +22,9 @@ Mentors will be assigned when the project is initiated.  Please feel free to rea
 | [Cezar Crăciunoiu](https://github.com/craciunoiuc) | cezar@unikraft.io |
 | [Ștefan Jumărea](https://github.com/StefanJum) | stefanjumarea02@gmail.com |
 | [Răzvan Vîrtan](https://github.com/razvanvirtan) | virtanrazvan@gmail.com |
-| [Andrei Cioc](https://github.com/) | andrei.cioc@unikraft.io |
-| [Sriprad Potukuchi](https://github.com/) | sriprad@unikraft.io |
-| [Shashank Srivastava](https://github.com/) | shashank21005@gmail.com |
+| [Andrei Cioc](https://github.com/nurof3n) | andrei.cioc@unikraft.io |
+| [Sriprad Potukuchi](https://github.com/procub3r) | sriprad@unikraft.io |
+| [Shashank Srivastava](https://github.com/shank250) | shashank21005@gmail.com |
 
 Below are a list of open projects for Unikraft which can be developed as part of GSoC26.
 
