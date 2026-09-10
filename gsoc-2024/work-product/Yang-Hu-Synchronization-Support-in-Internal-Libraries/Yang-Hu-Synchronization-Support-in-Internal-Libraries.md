@@ -5,8 +5,8 @@
 ## Summary
 
 Memory allocators have a significant impact on application performance.
-There have been serveral [research papers](https://dl.acm.org/doi/10.1145/378795.378821) which compared different memory allocators.
-According to their work, switching to the appropiate memory allocator may improve the application performance by 60%.
+There have been several [research papers](https://dl.acm.org/doi/10.1145/378795.378821) which compared different memory allocators.
+According to their work, switching to the appropriate memory allocator may improve the application performance by 60%.
 Unikraft currently supports only one non-synchronized memory allocator, the [*binary buddy* allocator](https://github.com/unikraft/unikraft/tree/staging/lib/ukallocbbuddy).
 Therefore, this project aims to enhance synchronization support in Unikraft's internal libraries and port [*mimalloc*](https://github.com/microsoft/mimalloc) (pronounced "me-malloc"), a high-performance general-purpose memory allocator developed by Microsoft, to it.
 
